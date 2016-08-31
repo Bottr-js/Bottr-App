@@ -29258,13 +29258,12 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'form',
-	        { className: 'footer', action: '', onSubmit: this.onSubmit.bind(this) },
-	        _react2.default.createElement('input', { ref: 'text', value: this.state.text, onChange: this.updateState.bind(this), autoComplete: 'off' }),
-	        _react2.default.createElement(
-	          'button',
-	          null,
-	          'Send'
-	        )
+	        { className: 'composer', action: '', onSubmit: this.onSubmit.bind(this) },
+	        _react2.default.createElement('input', { ref: 'text',
+	          placeholder: 'Enter Your Message',
+	          value: this.state.text,
+	          onChange: this.updateState.bind(this),
+	          autoComplete: 'off' })
 	      );
 	    }
 	  }, {
