@@ -22,7 +22,7 @@
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
-      var socket = io('http://localhost:5000/echobot/');
+      var socket = io('https://75b2db1e.ngrok.io');
       $('form').submit(function(){
         $('#messages').append($('<li>').text('You: ' + $('#m').val()));
         socket.emit('message', {text: $('#m').val()});

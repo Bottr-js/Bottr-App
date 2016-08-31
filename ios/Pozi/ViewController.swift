@@ -16,7 +16,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        webview.frame = view.frame
+        let insets = UIEdgeInsetsMake(UIApplication.sharedApplication().statusBarFrame.height, 0, 0, 0)
+        webview.frame = UIEdgeInsetsInsetRect(view.frame, insets)
         view.addSubview(webview)
         
         if let url = NSBundle.mainBundle().URLForResource("index", withExtension: "html", subdirectory: "web") {

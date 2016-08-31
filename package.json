@@ -19,5 +19,9 @@
   "homepage": "https://github.com/Pozi-js/Pozi-App#readme",
   "devDependencies": {
     "electron-prebuilt": "^1.2.0"
+  },
+  "dependencies": {
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
   }
 }
