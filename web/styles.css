@@ -90,7 +90,6 @@ html, body, .composer input
 .fadeInUp-enter {
   opacity: 0.01;
   transform: translate(0px, 10px);
-  z-index: 1;
 }
 
 .fadeInUp-enter.fadeInUp-enter-active {
