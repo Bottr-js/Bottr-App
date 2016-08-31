@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Chat from './components/chat';
 
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  <Chat/>,
   document.getElementById('react-root')
 );
