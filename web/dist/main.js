@@ -21493,7 +21493,10 @@
 	        console.log('Received ' + msg.text);
 
 	        var newMessages = this.state.messages;
-	        newMessages.push('Bot: ' + msg.text);
+	        newMessages.push({
+	          class: 'bot',
+	          text: msg.text
+	        });
 
 	        this.setState({
 	          messages: newMessages
@@ -21528,7 +21531,10 @@
 	    value: function onSubmit(text) {
 
 	      var newMessages = this.state.messages;
-	      newMessages.push('You: ' + text);
+	      newMessages.push({
+	        class: 'you',
+	        text: text
+	      });
 
 	      this.setState({
 	        messages: newMessages
@@ -29198,11 +29204,11 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'list' },
-	          this.props.messages.map(function (message) {
+	          this.props.messages.map(function (message, index) {
 	            return _react2.default.createElement(
 	              'div',
-	              { className: 'message', key: message },
-	              message
+	              { className: 'message ' + message.class, key: index },
+	              message.text
 	            );
 	          })
 	        )

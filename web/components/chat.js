@@ -22,7 +22,10 @@ class Chat extends React.Component {
       console.log('Received ' + msg.text)
 
       var newMessages = this.state.messages
-      newMessages.push('Bot: ' + msg.text)
+      newMessages.push({
+        class: 'bot',
+        text: msg.text
+      })
 
       this.setState({
         messages: newMessages
@@ -49,7 +52,10 @@ class Chat extends React.Component {
   onSubmit(text) {
 
     var newMessages = this.state.messages
-    newMessages.push('You: ' + text)
+    newMessages.push({
+      class: 'you',
+      text: text
+    })
 
     this.setState({
       messages: newMessages
