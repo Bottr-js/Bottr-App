@@ -21490,7 +21490,7 @@
 	      this.socket = (0, _socket2.default)('https://75b2db1e.ngrok.io');
 
 	      this.socket.on('message', function (msg) {
-	        console.log('Received ' + msg);
+	        console.log('Received ' + msg.text);
 
 	        var newMessages = this.state.messages;
 	        newMessages.push('Bot: ' + msg.text);
@@ -29229,10 +29229,15 @@
 	var Composer = function (_React$Component) {
 	  _inherits(Composer, _React$Component);
 
-	  function Composer() {
+	  function Composer(props) {
 	    _classCallCheck(this, Composer);
 
-	    return _possibleConstructorReturn(this, (Composer.__proto__ || Object.getPrototypeOf(Composer)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (Composer.__proto__ || Object.getPrototypeOf(Composer)).call(this, props));
+
+	    _this.state = {
+	      text: ''
+	    };
+	    return _this;
 	  }
 
 	  _createClass(Composer, [{
@@ -29241,7 +29246,7 @@
 	      return _react2.default.createElement(
 	        'form',
 	        { action: '', onSubmit: this.onSubmit.bind(this) },
-	        _react2.default.createElement('input', { ref: 'text', autoComplete: 'off' }),
+	        _react2.default.createElement('input', { ref: 'text', value: this.state.text, onChange: this.updateState.bind(this), autoComplete: 'off' }),
 	        _react2.default.createElement(
 	          'button',
 	          null,
@@ -29250,10 +29255,22 @@
 	      );
 	    }
 	  }, {
+	    key: 'updateState',
+	    value: function updateState(e) {
+	      this.setState({ text: e.target.value });
+	    }
+	  }, {
+	    key: 'clearInput',
+	    value: function clearInput() {
+	      this.setState({ text: '' });
+	      _reactDom2.default.findDOMNode(this.refs.text).focus();
+	    }
+	  }, {
 	    key: 'onSubmit',
 	    value: function onSubmit(e) {
 	      e.preventDefault();
 	      this.props.onSubmit(this.refs.text.value);
+	      this.clearInput();
 	    }
 	  }]);
 

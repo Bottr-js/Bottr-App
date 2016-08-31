@@ -19,7 +19,7 @@ class Chat extends React.Component {
     this.socket = io('https://75b2db1e.ngrok.io');
 
     this.socket.on('message', function(msg) {
-      console.log('Received ' + msg)
+      console.log('Received ' + msg.text)
 
       var newMessages = this.state.messages
       newMessages.push('Bot: ' + msg.text)
