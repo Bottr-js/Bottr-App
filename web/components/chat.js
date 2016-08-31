@@ -10,7 +10,8 @@ class Chat extends React.Component {
     super(props);
 
     this.state = {
-      messages: []
+      messages: [],
+      typing: false
     }
   }
 
@@ -28,12 +29,15 @@ class Chat extends React.Component {
       })
 
       this.setState({
-        messages: newMessages
+        messages: newMessages,
+        typing: false
       })
     }.bind(this));
 
     this.socket.on('typing', function(msg) {
-      console.log('Typing')
+      this.updateState({
+        typing: true
+      })
     });
   }
 
@@ -57,7 +61,7 @@ class Chat extends React.Component {
       text: text
     })
 
-    this.setState({
+    this.updateState({
       messages: newMessages
     })
 
