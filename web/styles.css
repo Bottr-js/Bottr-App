@@ -42,6 +42,9 @@ html, body, .composer input
   height: 42px;
   text-align: center;
   justify-content: center;
+
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
 }
 
 .header h1 {
