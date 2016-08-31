@@ -17,7 +17,7 @@ class Chat extends React.Component {
 
   componentDidMount() {
 
-    this.socket = io('https://75b2db1e.ngrok.io');
+    this.socket = io('http://localhost:3000');
 
     this.socket.on('message', function(msg) {
       console.log('Received ' + msg.text)
@@ -64,7 +64,7 @@ class Chat extends React.Component {
 
     this.setState({
       messages: newMessages,
-      typing: this.state,typing
+      typing: this.state.typing
     })
 
     this.socket.emit('message', {text: text})

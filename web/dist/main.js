@@ -21463,8 +21463,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -21480,13 +21478,7 @@
 	    var _this = _possibleConstructorReturn(this, (Chat.__proto__ || Object.getPrototypeOf(Chat)).call(this, props));
 
 	    _this.state = {
-	      messages: [{
-	        class: 'you',
-	        text: 'text'
-	      }, {
-	        class: 'bot',
-	        text: 'text'
-	      }],
+	      messages: [],
 	      typing: false
 	    };
 	    return _this;
@@ -21496,7 +21488,7 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 
-	      this.socket = (0, _socket2.default)('https://75b2db1e.ngrok.io');
+	      this.socket = (0, _socket2.default)('http://localhost:3000');
 
 	      this.socket.on('message', function (msg) {
 	        console.log('Received ' + msg.text);
@@ -21549,9 +21541,10 @@
 	        text: text
 	      });
 
-	      this.setState(_defineProperty({
+	      this.setState({
 	        messages: newMessages,
-	        typing: this.state }, 'typing', typing));
+	        typing: this.state.typing
+	      });
 
 	      this.socket.emit('message', { text: text });
 	    }
