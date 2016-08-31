@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class MessageList extends React.Component {
 
@@ -9,9 +10,11 @@ class MessageList extends React.Component {
 
     return <div className="messages">
       <div className="list">
-        {this.props.messages.map((message, index) => (
-          <div className={'message ' + message.class} key={index}>{message.text}</div>
-        ))}
+        <ReactCSSTransitionGroup transitionName="fadeInUp" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+          {this.props.messages.map((message, index) => (
+            <div className={'message ' + message.class} key={index}>{message.text}</div>
+          ))}
+        </ReactCSSTransitionGroup>
         { typing }
       </div>
     </div>
