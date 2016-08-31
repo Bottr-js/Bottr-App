@@ -15,11 +15,13 @@
     </style>
   </head>
   <body>
+    <div id="react-root"></div>
     <ul id="messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="dist/main.js"/></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io('https://75b2db1e.ngrok.io');
