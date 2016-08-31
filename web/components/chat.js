@@ -35,7 +35,8 @@ class Chat extends React.Component {
     }.bind(this));
 
     this.socket.on('typing', function(msg) {
-      this.updateState({
+      this.setState({
+        messages: this.state.messages,
         typing: true
       })
     });
@@ -47,7 +48,7 @@ class Chat extends React.Component {
         <div className="header">
           <h1>Pozi</h1>
         </div>
-        <MessageList messages={this.state.messages}/>
+        <MessageList messages={this.state.messages} typing={this.state.typing}/>
         <Composer onSubmit={this.onSubmit.bind(this)}/>
       </div>
     )
@@ -61,8 +62,9 @@ class Chat extends React.Component {
       text: text
     })
 
-    this.updateState({
-      messages: newMessages
+    this.setState({
+      messages: newMessages,
+      typing: this.state,typing
     })
 
     this.socket.emit('message', {text: text})

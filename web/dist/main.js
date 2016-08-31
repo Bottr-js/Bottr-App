@@ -21463,6 +21463,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -21478,7 +21480,14 @@
 	    var _this = _possibleConstructorReturn(this, (Chat.__proto__ || Object.getPrototypeOf(Chat)).call(this, props));
 
 	    _this.state = {
-	      messages: []
+	      messages: [{
+	        class: 'you',
+	        text: 'text'
+	      }, {
+	        class: 'bot',
+	        text: 'text'
+	      }],
+	      typing: false
 	    };
 	    return _this;
 	  }
@@ -21499,12 +21508,16 @@
 	        });
 
 	        this.setState({
-	          messages: newMessages
+	          messages: newMessages,
+	          typing: false
 	        });
 	      }.bind(this));
 
 	      this.socket.on('typing', function (msg) {
-	        console.log('Typing');
+	        this.setState({
+	          messages: this.state.messages,
+	          typing: true
+	        });
 	      });
 	    }
 	  }, {
@@ -21522,7 +21535,7 @@
 	            'Pozi'
 	          )
 	        ),
-	        _react2.default.createElement(_messageList2.default, { messages: this.state.messages }),
+	        _react2.default.createElement(_messageList2.default, { messages: this.state.messages, typing: this.state.typing }),
 	        _react2.default.createElement(_composer2.default, { onSubmit: this.onSubmit.bind(this) })
 	      );
 	    }
@@ -21536,9 +21549,9 @@
 	        text: text
 	      });
 
-	      this.setState({
-	        messages: newMessages
-	      });
+	      this.setState(_defineProperty({
+	        messages: newMessages,
+	        typing: this.state }, 'typing', typing));
 
 	      this.socket.emit('message', { text: text });
 	    }
@@ -29198,6 +29211,13 @@
 	  _createClass(MessageList, [{
 	    key: 'render',
 	    value: function render() {
+
+	      var typing = this.props.typing ? _react2.default.createElement(
+	        'div',
+	        { className: 'typing' },
+	        '...'
+	      ) : null;
+
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'messages' },
@@ -29210,7 +29230,8 @@
 	              { className: 'message ' + message.class, key: index },
 	              message.text
 	            );
-	          })
+	          }),
+	          typing
 	        )
 	      );
 	    }
