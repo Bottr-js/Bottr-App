@@ -4,11 +4,13 @@ import ReactDOM from 'react-dom';
 class MessageList extends React.Component {
 
   render() {
-    return <ul className="messages">
-    {this.props.messages.map(message => (
-      <li key={message}>{message}</li>
-    ))}
-    </ul>
+    return <div className="messages">
+      <div className="list">
+      {this.props.messages.map(message => (
+        <div className="message" key={message}>{message}</div>
+      ))}
+      </div>
+    </div>
   }
 }
 

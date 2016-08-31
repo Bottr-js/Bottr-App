@@ -36,7 +36,10 @@ class Chat extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="chat">
+        <div className="header">
+          <h1>Pozi</h1>
+        </div>
         <MessageList messages={this.state.messages}/>
         <Composer onSubmit={this.onSubmit.bind(this)}/>
       </div>

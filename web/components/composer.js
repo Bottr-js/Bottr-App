@@ -12,7 +12,7 @@ class Composer extends React.Component {
   }
 
   render() {
-    return <form action="" onSubmit={this.onSubmit.bind(this)}>
+    return <form className="footer" action="" onSubmit={this.onSubmit.bind(this)}>
       <input ref="text" value={this.state.text} onChange={this.updateState.bind(this)} autoComplete="off"/>
       <button>Send</button>
     </form>

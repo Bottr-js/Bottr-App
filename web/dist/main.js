@@ -21509,7 +21509,16 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'chat' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'header' },
+	          _react2.default.createElement(
+	            'h1',
+	            null,
+	            'Pozi'
+	          )
+	        ),
 	        _react2.default.createElement(_messageList2.default, { messages: this.state.messages }),
 	        _react2.default.createElement(_composer2.default, { onSubmit: this.onSubmit.bind(this) })
 	      );
@@ -29184,15 +29193,19 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'ul',
+	        'div',
 	        { className: 'messages' },
-	        this.props.messages.map(function (message) {
-	          return _react2.default.createElement(
-	            'li',
-	            { key: message },
-	            message
-	          );
-	        })
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'list' },
+	          this.props.messages.map(function (message) {
+	            return _react2.default.createElement(
+	              'div',
+	              { className: 'message', key: message },
+	              message
+	            );
+	          })
+	        )
 	      );
 	    }
 	  }]);
@@ -29245,7 +29258,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'form',
-	        { action: '', onSubmit: this.onSubmit.bind(this) },
+	        { className: 'footer', action: '', onSubmit: this.onSubmit.bind(this) },
 	        _react2.default.createElement('input', { ref: 'text', value: this.state.text, onChange: this.updateState.bind(this), autoComplete: 'off' }),
 	        _react2.default.createElement(
 	          'button',
