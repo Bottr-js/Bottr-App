@@ -29206,18 +29206,10 @@
 	  }
 
 	  _createClass(MessageList, [{
-	    key: 'componentWillUpdate',
-	    value: function componentWillUpdate() {
-	      var node = this.refs.list;
-	      this.shouldScrollBottom = node.scrollTop + node.offsetHeight === node.scrollHeight;
-	    }
-	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
-	      if (this.shouldScrollBottom) {
-	        var node = this.refs.list;
-	        node.scrollTop = node.scrollHeight;
-	      }
+	      var node = this.refs.list;
+	      node.scrollTop = node.scrollHeight;
 	    }
 	  }, {
 	    key: 'render',
