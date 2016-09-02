@@ -1,7 +1,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font: 13px Helvetica, Arial; }
 
-html, body, .composer input
+html, body
 {
   width: 100%;
   height: 100%;
@@ -51,11 +51,14 @@ html, body, .composer input
 }
 
 .composer {
+  display: flex;
   height: 42px;
+  align-items:center;
 }
 
 .composer input {
   border: 0;
+  flex: 1;
   padding: 10px;
   outline: none;
 }
@@ -99,4 +102,18 @@ html, body, .composer input
 
 .typing {
   padding: 0px 10px;
+}
+
+.composer input {
+  height: 100%
+}
+
+.composer div {
+  background-color: #2ecc71;
+  border-radius: 10px;
+  color: #ecf0f1;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 2.5px;
+  -webkit-user-select: none;
 }

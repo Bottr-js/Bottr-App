@@ -11,6 +11,9 @@ class Composer extends React.Component {
     }
   }
 
+ // FIXME: Paperclip icon for file
+ // FIXME: Trigger file prompt on click
+ // FIXME: Drag and drop for desktop enviroments
   render() {
     return <form className="composer" action="" onSubmit={this.onSubmit.bind(this)}>
       <input ref="text"
@@ -18,6 +21,7 @@ class Composer extends React.Component {
       value={this.state.text}
       onChange={this.updateState.bind(this)}
       autoComplete="off"/>
+      <div>File</div>
     </form>
   }
 

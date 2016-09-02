@@ -22345,7 +22345,7 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 
-	      this.socket = (0, _socket2.default)('http://75b2db1e.ngrok.io');
+	      this.socket = (0, _socket2.default)('http://localhost:3000');
 
 	      this.socket.on('message', function (msg) {
 	        console.log('Received ' + msg.text);
@@ -31032,6 +31032,9 @@
 	    return _this;
 	  }
 
+	  // FIXME: Paperclip icon for sfile
+
+
 	  _createClass(Composer, [{
 	    key: 'render',
 	    value: function render() {
@@ -31042,7 +31045,12 @@
 	          placeholder: 'Enter Your Message',
 	          value: this.state.text,
 	          onChange: this.updateState.bind(this),
-	          autoComplete: 'off' })
+	          autoComplete: 'off' }),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          'File'
+	        )
 	      );
 	    }
 	  }, {
