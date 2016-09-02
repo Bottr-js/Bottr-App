@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/Pozi-js/Pozi-App#readme",
   "devDependencies": {
-    "electron-prebuilt": "^1.2.0"
+    "electron-prebuilt": "^1.2.0",
+    "phonegap": "^6.3.0"
   },
   "dependencies": {
     "babel-core": "^6.14.0",
