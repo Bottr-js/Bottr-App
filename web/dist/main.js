@@ -22385,7 +22385,7 @@
 	          )
 	        ),
 	        _react2.default.createElement(_messageList2.default, { messages: this.state.messages, typing: this.state.typing }),
-	        _react2.default.createElement(_composer2.default, { onSubmit: this.onSubmit.bind(this) })
+	        _react2.default.createElement(_composer2.default, { onSubmit: this.onSubmit.bind(this), onUpload: this.onUpload.bind(this) })
 	      );
 	    }
 	  }, {
@@ -22404,6 +22404,11 @@
 	      });
 
 	      this.socket.emit('message', { text: text });
+	    }
+	  }, {
+	    key: 'onUpload',
+	    value: function onUpload(files) {
+	      alert();
 	    }
 	  }]);
 
@@ -31033,7 +31038,6 @@
 	  }
 
 	  // FIXME: Paperclip icon for file
-	  // FIXME: Trigger file prompt on click
 	  // FIXME: Drag and drop for desktop enviroments
 	  // FIXME: Disable file button when text is sent
 
@@ -31043,16 +31047,16 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'form',
-	        { className: 'composer', action: '', onSubmit: this.onSubmit.bind(this) },
+	        { ref: 'form', className: 'composer', action: '', onSubmit: this.onSubmit.bind(this) },
 	        _react2.default.createElement('input', { ref: 'text',
 	          placeholder: 'Enter Your Message',
 	          value: this.state.text,
 	          onChange: this.updateState.bind(this),
 	          autoComplete: 'off' }),
-	        _react2.default.createElement('input', { className: 'hidden', ref: 'file', type: 'file' }),
+	        _react2.default.createElement('input', { className: 'hidden', ref: 'file', type: 'file', onChange: this.onSelectedFile.bind(this) }),
 	        _react2.default.createElement(
 	          'div',
-	          { onClick: this.onSendFile.bind(this) },
+	          { onClick: this.selectFile.bind(this) },
 	          'File'
 	        )
 	      );
@@ -31076,9 +31080,16 @@
 	      this.clearInput();
 	    }
 	  }, {
-	    key: 'onSendFile',
-	    value: function onSendFile() {
+	    key: 'selectFile',
+	    value: function selectFile() {
 	      this.refs.file.click();
+	    }
+	  }, {
+	    key: 'onSelectedFile',
+	    value: function onSelectedFile() {
+	      if (this.refs.file.value) {
+	        this.props.onUpload(this.refs.file.files);
+	      }
 	    }
 	  }]);
 
