@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import TypingIndicator from './typing-indicator';
 
 class MessageList extends React.Component {
 
@@ -14,7 +15,7 @@ class MessageList extends React.Component {
   }
 
   render() {
-    var typing = (this.props.typing) ? <div className="message typing">...</div> : null
+    var typing = (this.props.typing) ? <TypingIndicator/> : null
 
     return <div className="messages">
       <div ref="list" className="list">

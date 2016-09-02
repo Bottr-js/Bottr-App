@@ -21457,7 +21457,7 @@
 
 	var _messageList2 = _interopRequireDefault(_messageList);
 
-	var _composer = __webpack_require__(231);
+	var _composer = __webpack_require__(232);
 
 	var _composer2 = _interopRequireDefault(_composer);
 
@@ -21479,7 +21479,7 @@
 
 	    _this.state = {
 	      messages: [],
-	      typing: false
+	      typing: true
 	    };
 	    return _this;
 	  }
@@ -21501,7 +21501,7 @@
 
 	        this.setState({
 	          messages: newMessages,
-	          typing: false
+	          typing: true
 	        });
 	      }.bind(this));
 
@@ -29188,6 +29188,10 @@
 
 	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
+	var _typingIndicator = __webpack_require__(231);
+
+	var _typingIndicator2 = _interopRequireDefault(_typingIndicator);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29210,18 +29214,15 @@
 	    value: function componentDidUpdate() {
 	      var node = this.refs.list;
 
-	      if (node.scrollHeight > node.clientHeight + 10) {
+	      var messageMargin = 10;
+	      if (node.scrollHeight > node.clientHeight + messageMargin) {
 	        node.scrollTop = node.scrollHeight;
 	      }
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var typing = this.props.typing ? _react2.default.createElement(
-	        'div',
-	        { className: 'message typing' },
-	        '...'
-	      ) : null;
+	      var typing = this.props.typing ? _react2.default.createElement(_typingIndicator2.default, null) : null;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -30089,6 +30090,55 @@
 
 /***/ },
 /* 231 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(34);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TypingIndicator = function (_React$Component) {
+	  _inherits(TypingIndicator, _React$Component);
+
+	  function TypingIndicator() {
+	    _classCallCheck(this, TypingIndicator);
+
+	    return _possibleConstructorReturn(this, (TypingIndicator.__proto__ || Object.getPrototypeOf(TypingIndicator)).apply(this, arguments));
+	  }
+
+	  _createClass(TypingIndicator, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'message typing' },
+	        _react2.default.createElement('img', { src: 'images/typing.gif' })
+	      );
+	    }
+	  }]);
+
+	  return TypingIndicator;
+	}(_react2.default.Component);
+
+	module.exports = TypingIndicator;
+
+/***/ },
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

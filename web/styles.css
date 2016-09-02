@@ -96,3 +96,7 @@ html, body, .composer input
   transform: translate(0px, 0px);
   transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
 }
+
+.typing {
+  padding: 0px 10px;
+}
