@@ -21488,7 +21488,7 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 
-	      this.socket = (0, _socket2.default)('http://localhost:3000');
+	      this.socket = (0, _socket2.default)('http://75b2db1e.ngrok.io');
 
 	      this.socket.on('message', function (msg) {
 	        console.log('Received ' + msg.text);
@@ -29206,9 +29206,22 @@
 	  }
 
 	  _createClass(MessageList, [{
+	    key: 'componentWillUpdate',
+	    value: function componentWillUpdate() {
+	      var node = this.refs.list;
+	      this.shouldScrollBottom = node.scrollTop + node.offsetHeight === node.scrollHeight;
+	    }
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      if (this.shouldScrollBottom) {
+	        var node = this.refs.list;
+	        node.scrollTop = node.scrollHeight;
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-
 	      var typing = this.props.typing ? _react2.default.createElement(
 	        'div',
 	        { className: 'typing' },
@@ -29220,7 +29233,7 @@
 	        { className: 'messages' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'list' },
+	          { ref: 'list', className: 'list' },
 	          _react2.default.createElement(
 	            _reactAddonsCssTransitionGroup2.default,
 	            { transitionName: 'fadeInUp', transitionEnterTimeout: 500, transitionLeaveTimeout: 300 },
