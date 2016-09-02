@@ -6,11 +6,14 @@ class MessageList extends React.Component {
 
   componentDidUpdate() {
     var node = this.refs.list;
-    node.scrollTop = node.scrollHeight;
+
+    if (node.scrollHeight > (node.clientHeight + 10)) {
+      node.scrollTop = node.scrollHeight;
+    }
   }
 
   render() {
-    var typing = (this.props.typing) ? <div className="typing">...</div> : null
+    var typing = (this.props.typing) ? <div className="message typing">...</div> : null
 
     return <div className="messages">
       <div ref="list" className="list">

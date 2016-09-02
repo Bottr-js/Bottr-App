@@ -29209,14 +29209,17 @@
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
 	      var node = this.refs.list;
-	      node.scrollTop = node.scrollHeight;
+
+	      if (node.scrollHeight > node.clientHeight + 10) {
+	        node.scrollTop = node.scrollHeight;
+	      }
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var typing = this.props.typing ? _react2.default.createElement(
 	        'div',
-	        { className: 'typing' },
+	        { className: 'message typing' },
 	        '...'
 	      ) : null;
 
