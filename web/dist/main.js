@@ -21479,7 +21479,7 @@
 
 	    _this.state = {
 	      messages: [],
-	      typing: true
+	      typing: false
 	    };
 	    return _this;
 	  }
@@ -21501,7 +21501,7 @@
 
 	        this.setState({
 	          messages: newMessages,
-	          typing: true
+	          typing: false
 	        });
 	      }.bind(this));
 
