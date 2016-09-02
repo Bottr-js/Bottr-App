@@ -22405,10 +22405,55 @@
 
 	      this.socket.emit('message', { text: text });
 	    }
+
+	    // TODO: Implement upload message
+	    // TODO: Implement sending to server
+
 	  }, {
 	    key: 'onUpload',
 	    value: function onUpload(files) {
-	      alert();
+
+	      for (var i = 0, f; f = files[i]; i++) {
+
+	        if (!f.type.match('image.*')) {
+	          console.error("Pozi App doesn't support abitary uploads just yet");
+	          continue;
+	        }
+
+	        var type = f.type;
+	        var reader = new FileReader();
+	        var chat = this;
+
+	        reader.onload = function (theFile) {
+	          return function (e) {
+
+	            var newMessages = chat.state.messages;
+	            newMessages.push({
+	              class: 'you',
+	              text: 'file',
+	              attachment: {
+	                type: type,
+	                data: e.target.result
+	              }
+	              // attachment
+	            });
+
+	            chat.setState({
+	              messages: newMessages,
+	              typing: chat.state.typing
+	            });
+
+	            //  // Render thumbnail.
+	            //  var span = document.createElement('span');
+	            //  span.innerHTML = ['<img class="thumb" src="', e.target.result,
+	            //                    '" title="', escape(theFile.name), '"/>'].join('');
+	            //  document.body.appendChild(span);
+	          };
+	        }(f);
+
+	        // Read in the image file as a data URL.
+	        reader.readAsDataURL(f);
+	      }
 	    }
 	  }]);
 
@@ -31040,6 +31085,12 @@
 	  // FIXME: Paperclip icon for file
 	  // FIXME: Drag and drop for desktop enviroments
 	  // FIXME: Disable file button when text is sent
+	  // FIXME: Hide file button if not supported
+	  //  if (window.File && window.FileReader && window.FileList && window.Blob) {
+	  //   // Great success! All the File APIs are supported.
+	  // } else {
+	  //   alert('The File APIs are not fully supported in this browser.');
+	  // }
 
 
 	  _createClass(Composer, [{

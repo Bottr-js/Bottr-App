@@ -14,6 +14,12 @@ class Composer extends React.Component {
  // FIXME: Paperclip icon for file
  // FIXME: Drag and drop for desktop enviroments
  // FIXME: Disable file button when text is sent
+ // FIXME: Hide file button if not supported
+//  if (window.File && window.FileReader && window.FileList && window.Blob) {
+//   // Great success! All the File APIs are supported.
+// } else {
+//   alert('The File APIs are not fully supported in this browser.');
+// }
   render() {
     return <form ref="form" className="composer" action="" onSubmit={this.onSubmit.bind(this)}>
       <input ref="text"

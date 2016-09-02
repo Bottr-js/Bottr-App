@@ -70,8 +70,44 @@ class Chat extends React.Component {
     this.socket.emit('message', {text: text})
   }
 
+// TODO: Implement upload message
+// TODO: Implement sending to server
+
   onUpload(files) {
-    alert()
+
+     for (var i = 0, f; f = files[i]; i++) {
+
+       if (!f.type.match('image.*')) {
+         console.error("Pozi App doesn't support abitary uploads just yet")
+         continue;
+       }
+
+       var type = f.type
+       var reader = new FileReader()
+       var chat = this
+
+       reader.onload = (function(theFile) {
+         return function(e) {
+
+           var newMessages = chat.state.messages
+           newMessages.push({
+             class: 'you',
+             attachment: {
+               type: type,
+               data: e.target.result
+             }
+           }) //FIXME: Render in component
+
+           chat.setState({
+             messages: newMessages,
+             typing: chat.state.typing
+           })
+         };
+       })(f);
+
+       // Read in the image file as a data URL.
+       reader.readAsDataURL(f);
+     }
   }
 }
 
