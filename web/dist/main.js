@@ -31032,7 +31032,10 @@
 	    return _this;
 	  }
 
-	  // FIXME: Paperclip icon for sfile
+	  // FIXME: Paperclip icon for file
+	  // FIXME: Trigger file prompt on click
+	  // FIXME: Drag and drop for desktop enviroments
+	  // FIXME: Disable file button when text is sent
 
 
 	  _createClass(Composer, [{
@@ -31046,9 +31049,10 @@
 	          value: this.state.text,
 	          onChange: this.updateState.bind(this),
 	          autoComplete: 'off' }),
+	        _react2.default.createElement('input', { className: 'hidden', ref: 'file', type: 'file' }),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { onClick: this.onSendFile.bind(this) },
 	          'File'
 	        )
 	      );
@@ -31070,6 +31074,11 @@
 	      e.preventDefault();
 	      this.props.onSubmit(this.refs.text.value);
 	      this.clearInput();
+	    }
+	  }, {
+	    key: 'onSendFile',
+	    value: function onSendFile() {
+	      this.refs.file.click();
 	    }
 	  }]);
 
