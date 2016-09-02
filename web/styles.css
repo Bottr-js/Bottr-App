@@ -81,6 +81,15 @@ html, body
   position: relative;
 }
 
+.message {
+  max-width: 80%;
+}
+
+.message img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
 .you {
   background-color: #2ecc71;
   color: #ecf0f1;
