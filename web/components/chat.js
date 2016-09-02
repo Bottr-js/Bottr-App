@@ -100,6 +100,13 @@ class Chat extends React.Component {
              messages: newMessages,
              typing: chat.state.typing
            })
+
+           this.socket.emit('message', {attachments: [
+             {
+               type: type,
+               data: e.target.result
+             }
+           ]})
          };
        })(f);
 
