@@ -7,7 +7,8 @@ class MessageList extends React.Component {
   componentDidUpdate() {
     var node = this.refs.list;
 
-    if (node.scrollHeight > (node.clientHeight + 10)) {
+    var messageMargin = 10
+    if (node.scrollHeight > (node.clientHeight + messageMargin)) {
       node.scrollTop = node.scrollHeight;
     }
   }
