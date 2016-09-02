@@ -22430,24 +22430,16 @@
 	            var newMessages = chat.state.messages;
 	            newMessages.push({
 	              class: 'you',
-	              text: 'file',
 	              attachment: {
 	                type: type,
 	                data: e.target.result
 	              }
-	              // attachment
-	            });
+	            }); //FIXME: Render in component
 
 	            chat.setState({
 	              messages: newMessages,
 	              typing: chat.state.typing
 	            });
-
-	            //  // Render thumbnail.
-	            //  var span = document.createElement('span');
-	            //  span.innerHTML = ['<img class="thumb" src="', e.target.result,
-	            //                    '" title="', escape(theFile.name), '"/>'].join('');
-	            //  document.body.appendChild(span);
 	          };
 	        }(f);
 

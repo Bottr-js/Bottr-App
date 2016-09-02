@@ -4,6 +4,7 @@ import io from 'socket.io-client'
 import MessageList from './message-list';
 import Composer from './composer';
 
+//FIXME: Tidy up
 class Chat extends React.Component {
 
   constructor(props) {
@@ -70,9 +71,6 @@ class Chat extends React.Component {
     this.socket.emit('message', {text: text})
   }
 
-// TODO: Implement upload message
-// TODO: Implement sending to server
-
   onUpload(files) {
 
      for (var i = 0, f; f = files[i]; i++) {
@@ -96,7 +94,7 @@ class Chat extends React.Component {
                type: type,
                data: e.target.result
              }
-           }) //FIXME: Render in component
+           })
 
            chat.setState({
              messages: newMessages,
