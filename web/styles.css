@@ -122,9 +122,12 @@ html, body
   border-radius: 10px;
   color: #ecf0f1;
   cursor: pointer;
-  padding: 10px 20px;
   margin: 2.5px;
   -webkit-user-select: none;
+}
+
+.composer div img {
+  padding: 5px 15px;
 }
 
 .hidden {

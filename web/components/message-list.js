@@ -20,12 +20,12 @@ class MessageList extends React.Component {
 
     return <div className="messages">
       <div ref="list" className="list">
-        <ReactCSSTransitionGroup transitionName="fadeInUp" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+        <ReactCSSTransitionGroup transitionName="fadeInUp" transitionEnterTimeout={500} transitionLeaveTimeout={1}>
           {this.props.messages.map((message, index) => (
             <Message key={index} message={message}/>
           ))}
+          { typing }
         </ReactCSSTransitionGroup>
-        { typing }
       </div>
     </div>
   }

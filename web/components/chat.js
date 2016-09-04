@@ -40,7 +40,7 @@ class Chat extends React.Component {
         messages: this.state.messages,
         typing: true
       })
-    });
+    }.bind(this));
   }
 
   render() {
@@ -101,7 +101,8 @@ class Chat extends React.Component {
              typing: chat.state.typing
            })
 
-           this.socket.emit('message', {attachments: [
+           chat.socket.emit('message', {
+             attachments: [
              {
                type: type,
                data: e.target.result

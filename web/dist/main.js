@@ -22368,7 +22368,7 @@
 	          messages: this.state.messages,
 	          typing: true
 	        });
-	      });
+	      }.bind(this));
 	    }
 	  }, {
 	    key: 'render',
@@ -22438,7 +22438,8 @@
 	              typing: chat.state.typing
 	            });
 
-	            this.socket.emit('message', { attachments: [{
+	            chat.socket.emit('message', {
+	              attachments: [{
 	                type: type,
 	                data: e.target.result
 	              }] });
@@ -30137,12 +30138,12 @@
 	          { ref: 'list', className: 'list' },
 	          _react2.default.createElement(
 	            _reactAddonsCssTransitionGroup2.default,
-	            { transitionName: 'fadeInUp', transitionEnterTimeout: 500, transitionLeaveTimeout: 300 },
+	            { transitionName: 'fadeInUp', transitionEnterTimeout: 500, transitionLeaveTimeout: 1 },
 	            this.props.messages.map(function (message, index) {
 	              return _react2.default.createElement(_message2.default, { key: index, message: message });
-	            })
-	          ),
-	          typing
+	            }),
+	            typing
+	          )
 	        )
 	      );
 	    }
@@ -31159,7 +31160,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { onClick: this.selectFile.bind(this) },
-	          'File'
+	          _react2.default.createElement('img', { src: 'images/attach.png' })
 	        )
 	      );
 	    }
