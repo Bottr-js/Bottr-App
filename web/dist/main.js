@@ -22412,22 +22412,19 @@
 
 	      for (var i = 0, f; f = files[i]; i++) {
 
-	        if (!f.type.match('image.*')) {
-	          console.error("Pozi App doesn't support abitary uploads just yet");
-	          continue;
-	        }
-
+	        var name = f.name;
 	        var type = f.type;
 	        var reader = new FileReader();
 	        var chat = this;
 
-	        reader.onload = function (theFile) {
+	        reader.onload = function () {
 	          return function (e) {
 
 	            var newMessages = chat.state.messages;
 	            newMessages.push({
 	              class: 'you',
 	              attachment: {
+	                name: name,
 	                type: type,
 	                data: e.target.result
 	              }
@@ -31075,18 +31072,33 @@
 	  _createClass(Message, [{
 	    key: 'render',
 	    value: function render() {
-	      if (this.props.message.hasOwnProperty('attachment')) {
+	      var message = this.props.message;
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'message ' + message.class },
+	        this.renderContents()
+	      );
+	    }
+	  }, {
+	    key: 'renderContents',
+	    value: function renderContents() {
+	      var message = this.props.message;
+	      var attachment = message.attachment;
+	      var attachmentType = attachment ? attachment.type : 'none';
+
+	      if (attachmentType.match('image.*')) {
+	        return _react2.default.createElement('img', { src: attachment.data });
+	      } else if (!attachmentType.match('none.*')) {
 	        return _react2.default.createElement(
-	          'div',
-	          { className: 'message ' + this.props.message.class },
-	          _react2.default.createElement('img', { src: this.props.message.attachment.data })
+	          'span',
+	          null,
+	          _react2.default.createElement('img', { src: 'images/file.png' }),
+	          ' ',
+	          attachment.name
 	        );
 	      } else {
-	        return _react2.default.createElement(
-	          'div',
-	          { className: 'message ' + this.props.message.class },
-	          this.props.message.text
-	        );
+	        return message.text;
 	      }
 	    }
 	  }]);

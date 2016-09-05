@@ -3,14 +3,24 @@ import ReactDOM from 'react-dom';
 
 class Message extends React.Component {
   render() {
-    if (this.props.message.hasOwnProperty('attachment')) {
-      return <div className={'message ' + this.props.message.class}>
-      <img src={this.props.message.attachment.data}/>
-      </div>
+    var message = this.props.message
+
+    return <div className={'message ' + message.class}>
+    {this.renderContents()}
+    </div>
+  }
+
+  renderContents() {
+    var message = this.props.message
+    var attachment = message.attachment
+    var attachmentType = (attachment) ? attachment.type : 'none'
+
+    if (attachmentType.match('image.*')) {
+      return <img src={attachment.data}/>
+    } else if (!attachmentType.match('none.*')) {
+      return <span><img src="images/file.png"/> {attachment.name}</span>
     } else {
-      return <div className={'message ' + this.props.message.class}>
-      {this.props.message.text}
-      </div>
+      return message.text
     }
   }
 }

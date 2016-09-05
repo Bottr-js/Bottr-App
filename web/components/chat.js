@@ -75,22 +75,20 @@ class Chat extends React.Component {
 
      for (var i = 0, f; f = files[i]; i++) {
 
-       if (!f.type.match('image.*')) {
-         console.error("Pozi App doesn't support abitary uploads just yet")
-         continue;
-       }
-
+       var name = f.name
        var type = f.type
        var reader = new FileReader()
        var chat = this
 
-       reader.onload = (function(theFile) {
+       reader.onload = (function() {
          return function(e) {
+
 
            var newMessages = chat.state.messages
            newMessages.push({
              class: 'you',
              attachment: {
+               name: name,
                type: type,
                data: e.target.result
              }
