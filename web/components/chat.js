@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import io from 'socket.io-client'
-import MessageList from './message-list';
-import Composer from './composer';
+import MessageList from './message-list'
+import Composer from './composer'
+import ChatSession from './chat-session'
 
-//FIXME: Tidy up
 class Chat extends React.Component {
 
   constructor(props) {
@@ -14,30 +14,27 @@ class Chat extends React.Component {
       messages: [],
       typing: false
     }
+
+    this.session = new ChatSession()
   }
 
   componentDidMount() {
 
-    this.socket = io('http://localhost:3000');
+    var messages = this.state.messages
 
-    this.socket.on('message', function(msg) {
-      console.log('Received ' + msg.text)
+    this.session.on('message', function(message) {
 
-      var newMessages = this.state.messages
-      newMessages.push({
-        class: 'bot',
-        text: msg.text
-      })
+      messages.push(message)
 
       this.setState({
-        messages: newMessages,
-        typing: false
+        messages: messages,
+        typing: this.props.typing && message.class !== 'bot'
       })
-    }.bind(this));
 
-    this.socket.on('typing', function(msg) {
+    }.bind(this))
+
+    this.session.on('typing', function(msg) {
       this.setState({
-        messages: this.state.messages,
         typing: true
       })
     }.bind(this));
@@ -56,61 +53,12 @@ class Chat extends React.Component {
   }
 
   onSubmit(text) {
-
-    var newMessages = this.state.messages
-    newMessages.push({
-      class: 'you',
-      text: text
-    })
-
-    this.setState({
-      messages: newMessages,
-      typing: this.state.typing
-    })
-
-    this.socket.emit('message', {text: text})
+    this.session.send(text)
   }
 
   onUpload(files) {
-
      for (var i = 0, f; f = files[i]; i++) {
-
-       var name = f.name
-       var type = f.type
-       var reader = new FileReader()
-       var chat = this
-
-       reader.onload = (function() {
-         return function(e) {
-
-
-           var newMessages = chat.state.messages
-           newMessages.push({
-             class: 'you',
-             attachment: {
-               name: name,
-               type: type,
-               data: e.target.result
-             }
-           })
-
-           chat.setState({
-             messages: newMessages,
-             typing: chat.state.typing
-           })
-
-           chat.socket.emit('message', {
-             attachments: [
-             {
-               type: type,
-               data: e.target.result
-             }
-           ]})
-         };
-       })(f);
-
-       // Read in the image file as a data URL.
-       reader.readAsDataURL(f);
+       this.session.send(f)
      }
   }
 }
