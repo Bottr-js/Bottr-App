@@ -22389,7 +22389,7 @@
 	          _react2.default.createElement(
 	            'h1',
 	            null,
-	            'Pozi'
+	            'Bottr'
 	          )
 	        ),
 	        _react2.default.createElement(_messageList2.default, { messages: this.state.messages, typing: this.state.typing }),
@@ -30987,7 +30987,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'message typing' },
-	        _react2.default.createElement('img', { src: 'images/typing.gif' })
+	        _react2.default.createElement('img', { src: 'res/typing.gif' })
 	      );
 	    }
 	  }]);
