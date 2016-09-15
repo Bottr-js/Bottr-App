@@ -8,7 +8,7 @@ class ChatSession extends EventEmitter {
 
     super()
 
-    this.socket = io('http://localhost:3000')
+    this.socket = io(window.location.href, { origins: '*:*'})
 
     this.socket.on('message', function(msg) {
       this.emit('message', {

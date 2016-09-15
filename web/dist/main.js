@@ -31207,7 +31207,7 @@
 
 	    var _this = _possibleConstructorReturn(this, (ChatSession.__proto__ || Object.getPrototypeOf(ChatSession)).call(this));
 
-	    _this.socket = (0, _socket2.default)('http://localhost:3000');
+	    _this.socket = (0, _socket2.default)('http://lolz.bottr.co:3003', { origins: '*:*' });
 
 	    _this.socket.on('message', function (msg) {
 	      this.emit('message', {
