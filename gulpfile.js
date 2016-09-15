@@ -15,5 +15,5 @@ gulp.task('default', function() {
         }]
       }
   }))
-  .pipe(gulp.dest('web/dist/'))
+  .pipe(gulp.dest('web/res/'))
 });

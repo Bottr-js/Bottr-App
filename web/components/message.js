@@ -15,8 +15,10 @@ class Message extends React.Component {
     var attachment = message.attachment
     var attachmentType = (attachment) ? attachment.type : 'none'
 
-    if (attachmentType.match('image.*')) {
+    if (attachmentType.match('image.*') && attachment.data) {
       return <img src={attachment.data}/>
+    } else if (attachmentType.match('image.*') && attachment.url) {
+      return <img src={attachment.url}/>
     } else if (!attachmentType.match('none.*')) {
       return <span><img src="images/file.png"/> {attachment.name}</span>
     } else {

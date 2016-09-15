@@ -24,7 +24,7 @@ html, body
 }
 
 .messages {
-  background: url('images/background.jpg');
+  background: url('background.jpg');
   background-size: cover;
   display: flex;
   flex: 1;

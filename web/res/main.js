@@ -31048,8 +31048,10 @@
 	      var attachment = message.attachment;
 	      var attachmentType = attachment ? attachment.type : 'none';
 
-	      if (attachmentType.match('image.*')) {
+	      if (attachmentType.match('image.*') && attachment.data) {
 	        return _react2.default.createElement('img', { src: attachment.data });
+	      } else if (attachmentType.match('image.*') && attachment.url) {
+	        return _react2.default.createElement('img', { src: attachment.url });
 	      } else if (!attachmentType.match('none.*')) {
 	        return _react2.default.createElement(
 	          'span',
@@ -31133,7 +31135,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { onClick: this.selectFile.bind(this) },
-	          _react2.default.createElement('img', { src: 'images/attach.png' })
+	          _react2.default.createElement('img', { src: 'res/attach.png' })
 	        )
 	      );
 	    }
@@ -31207,12 +31209,13 @@
 
 	    var _this = _possibleConstructorReturn(this, (ChatSession.__proto__ || Object.getPrototypeOf(ChatSession)).call(this));
 
-	    _this.socket = (0, _socket2.default)('http://lolz.bottr.co:3003', { origins: '*:*' });
+	    _this.socket = (0, _socket2.default)(window.location.href);
 
 	    _this.socket.on('message', function (msg) {
 	      this.emit('message', {
 	        class: 'bot',
-	        text: msg.text
+	        text: msg.text,
+	        attachment: msg.attachment
 	      });
 	    }.bind(_this));
 

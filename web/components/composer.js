@@ -28,7 +28,7 @@ class Composer extends React.Component {
       onChange={this.updateState.bind(this)}
       autoComplete="off"/>
       <input className="hidden" ref="file" type="file" onChange={this.onSelectedFile.bind(this)}/>
-      <div onClick={this.selectFile.bind(this)}><img src="images/attach.png"/></div>
+      <div onClick={this.selectFile.bind(this)}><img src="res/attach.png"/></div>
     </form>
   }
 

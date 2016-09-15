@@ -13,7 +13,8 @@ class ChatSession extends EventEmitter {
     this.socket.on('message', function(msg) {
       this.emit('message', {
         class: 'bot',
-        text: msg.text
+        text: msg.text,
+        attachment: msg.attachment
       })
     }.bind(this));
 
