@@ -11,8 +11,6 @@ class Composer extends React.Component {
     }
   }
 
- // FIXME: Paperclip icon for file
- // FIXME: Drag and drop for desktop enviroments
  // FIXME: Disable file button when text is sent
  // FIXME: Hide file button if not supported
 //  if (window.File && window.FileReader && window.FileList && window.Blob) {
@@ -42,9 +40,14 @@ class Composer extends React.Component {
   }
 
   onSubmit(e) {
-    e.preventDefault()
-    this.props.onSubmit(this.refs.text.value)
-    this.clearInput()
+
+    var text = this.refs.text.value
+
+    if (text.length > 0) {
+      e.preventDefault()
+      this.props.onSubmit(text)
+      this.clearInput()
+    }
   }
 
   selectFile() {
