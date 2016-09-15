@@ -49,7 +49,7 @@ class Chat extends React.Component {
     return (
       <Dropzone className="chat" onDrop={this.onUpload.bind(this)}>
         <div className="header">
-          <h1>Pozi</h1>
+          <h1>Bottr</h1>
         </div>
         <MessageList messages={this.state.messages} typing={this.state.typing}/>
         <Composer onSubmit={this.onSubmit.bind(this)} onUpload={this.onUpload.bind(this)}/>
