@@ -787,7 +787,7 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 * @providesModule reactProdInvariant
-	 *
+	 * 
 	 */
 	'use strict';
 
@@ -1365,7 +1365,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	function makeEmptyFunction(arg) {
@@ -1610,7 +1610,7 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 * @providesModule getIteratorFn
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -1656,7 +1656,7 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 * @providesModule KeyEscapeUtils
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -6385,7 +6385,7 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 * @providesModule accumulateInto
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -6449,7 +6449,7 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 * @providesModule forEachAccumulated
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -7718,7 +7718,7 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 * @providesModule ReactFeatureFlags
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -8997,7 +8997,7 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 * @providesModule isTextInputElement
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -12464,7 +12464,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 * @typechecks static-only
 	 */
 
@@ -15993,7 +15993,7 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 * @providesModule ReactNodeTypes
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -16039,7 +16039,7 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 * @typechecks
-	 *
+	 * 
 	 */
 
 	/*eslint-disable no-self-compare */
@@ -16274,7 +16274,7 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 * @providesModule flattenChildren
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -16452,7 +16452,7 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 * @providesModule ReactServerUpdateQueue
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -18601,7 +18601,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	var isTextNode = __webpack_require__(146);
@@ -21118,7 +21118,7 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 * @providesModule adler32
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -22419,7 +22419,7 @@
 /* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
-
+	
 	/**
 	 * Module dependencies.
 	 */
@@ -22645,7 +22645,7 @@
 /* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
-
+	
 	/**
 	 * This is the web browser implementation of `debug()`.
 	 *
@@ -22819,7 +22819,7 @@
 /* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
-
+	
 	/**
 	 * This is the common logic for both the Node.js and web browser
 	 * implementations of `debug()`.
@@ -23153,7 +23153,7 @@
 /* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
-
+	
 	/**
 	 * Module dependencies.
 	 */
@@ -24501,7 +24501,7 @@
 /* 185 */
 /***/ function(module, exports) {
 
-
+	
 	/**
 	 * Expose `Emitter`.
 	 */
@@ -24839,7 +24839,7 @@
 /* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
-
+	
 	/**
 	 * Module dependencies.
 	 */
@@ -25402,7 +25402,7 @@
 /* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
-
+	
 	module.exports =  __webpack_require__(190);
 
 
@@ -25410,7 +25410,7 @@
 /* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
-
+	
 	module.exports = __webpack_require__(191);
 
 	/**
@@ -26263,7 +26263,7 @@
 /* 194 */
 /***/ function(module, exports) {
 
-
+	
 	/**
 	 * Module exports.
 	 *
@@ -27720,7 +27720,7 @@
 /* 199 */
 /***/ function(module, exports) {
 
-
+	
 	/**
 	 * Gets the keys for an object.
 	 *
@@ -28305,7 +28305,7 @@
 /* 207 */
 /***/ function(module, exports) {
 
-
+	
 	/**
 	 * Expose `Emitter`.
 	 */
@@ -28518,7 +28518,7 @@
 /* 209 */
 /***/ function(module, exports) {
 
-
+	
 	module.exports = function(a, b){
 	  var fn = function(){};
 	  fn.prototype = b.prototype;
@@ -28747,7 +28747,7 @@
 	  this.script = script;
 
 	  var isUAgecko = 'undefined' != typeof navigator && /gecko/i.test(navigator.userAgent);
-
+	  
 	  if (isUAgecko) {
 	    setTimeout(function () {
 	      var iframe = document.createElement('iframe');
@@ -29150,7 +29150,7 @@
 /* 214 */
 /***/ function(module, exports) {
 
-
+	
 	var indexOf = [].indexOf;
 
 	module.exports = function(arr, obj){
@@ -29203,7 +29203,7 @@
 /* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
-
+	
 	/**
 	 * Module dependencies.
 	 */
@@ -29621,7 +29621,7 @@
 /* 217 */
 /***/ function(module, exports) {
 
-
+	
 	/**
 	 * Expose `Emitter`.
 	 */
@@ -29807,7 +29807,7 @@
 /* 219 */
 /***/ function(module, exports) {
 
-
+	
 	/**
 	 * Module exports.
 	 */
@@ -29941,7 +29941,7 @@
 /* 223 */
 /***/ function(module, exports) {
 
-
+	
 	/**
 	 * Expose `Backoff`.
 	 */
@@ -31109,8 +31109,6 @@
 	    return _this;
 	  }
 
-	  // FIXME: Paperclip icon for file
-	  // FIXME: Drag and drop for desktop enviroments
 	  // FIXME: Disable file button when text is sent
 	  // FIXME: Hide file button if not supported
 	  //  if (window.File && window.FileReader && window.FileList && window.Blob) {
@@ -31153,9 +31151,14 @@
 	  }, {
 	    key: 'onSubmit',
 	    value: function onSubmit(e) {
-	      e.preventDefault();
-	      this.props.onSubmit(this.refs.text.value);
-	      this.clearInput();
+
+	      var text = this.refs.text.value;
+
+	      if (text.length > 0) {
+	        e.preventDefault();
+	        this.props.onSubmit(text);
+	        this.clearInput();
+	      }
 	    }
 	  }, {
 	    key: 'selectFile',
@@ -31209,7 +31212,7 @@
 
 	    var _this = _possibleConstructorReturn(this, (ChatSession.__proto__ || Object.getPrototypeOf(ChatSession)).call(this));
 
-	    _this.socket = (0, _socket2.default)("http://localhost:3000");
+	    _this.socket = (0, _socket2.default)(window.location.href);
 
 	    _this.socket.on('message', function (msg) {
 	      this.emit('message', {
