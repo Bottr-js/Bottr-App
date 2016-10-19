@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Pozi-js/Pozi-App.git"
+    "url": "git+https://github.com/Bottr-js/Bottr-App.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Pozi-js/Pozi-App/issues"
+    "url": "https://github.com/Bottr-js/Bottr-App/issues"
   },
-  "homepage": "https://github.com/Pozi-js/Pozi-App#readme",
+  "homepage": "https://github.com/Bottr-js/Bottr-App#readme",
   "devDependencies": {
     "electron-prebuilt": "^1.2.0",
     "phonegap": "^6.3.0"

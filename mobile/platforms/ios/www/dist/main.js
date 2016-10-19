@@ -22381,7 +22381,7 @@
 	          _react2.default.createElement(
 	            'h1',
 	            null,
-	            'Pozi'
+	            'Bottr'
 	          )
 	        ),
 	        _react2.default.createElement(_messageList2.default, { messages: this.state.messages, typing: this.state.typing }),
