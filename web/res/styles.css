@@ -72,7 +72,7 @@ html, body
 
 .message {
   clear: both;
-  display: inline-block;;
+  display: inline-block;
   float: left;
   background: #ecf0f1;
   border-radius: 5px;
